@@ -48,6 +48,7 @@ cursor = conn.cursor()
 
 
 def switcher(num):
+
     if(num==1):
         nome = input("Digite seu nome: ")
         senha = input("Digite sua senha: ")
@@ -56,17 +57,32 @@ def switcher(num):
         cursor.execute(request,req_user)
         request = cursor.fetchall()
         if request:
-            print(request)
+            ################################
+            #   PEGAR DADOS DO USUARIO     #
+            ################################
+            nome_user = ("SELECT NOME FROM USER WHERE NOME = ? AND SENHA = ?")
+            cursor.execute(nome_user,req_user)
+            nome = cursor.fetchall()
+            print(nome[0])
+            """for i in cursor.fetchall():
+                print(i[0])"""
         else:
             print("Erro")
-            
-    if(num==2):
+
+    elif(num==2):
         nome = input("Nome: ")
         senha = input("senha: ")
         idade = input("Idade: ")
         altura = input("Altura: ")
         peso = input("Peso: ")
         addUsuario.addUser(nome,senha,idade,altura,peso)
+
+    elif(num == 3):
+        print("Saindo")
+    else:
+        print("Valor invalido")
+
+
 
 
 
@@ -76,5 +92,5 @@ def switcher(num):
 ###
 #Criar janela de opções
 
-escolha = int(input("Você deseja: \n[1]Login\n[2]Registrar"))
+escolha = int(input("Você deseja: \n[1]Login\n[2]Registrar\n[3]Sair"))
 switcher(escolha)

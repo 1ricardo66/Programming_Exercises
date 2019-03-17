@@ -1,25 +1,24 @@
 #include <stdio.h>
-float distanciaP(int tempo, float velocidadeM){
-  float distancia = tempo*velocidadeM;
-  return distancia;
+
+float distanciaP(int tempo, float velocidade){
+  return tempo*velocidade;
 }
 
-float litros_usados (float distancia){
-  float litros = distancia / 12;
-  return litros;
+float litros_usados(float distancia){
+   return (distancia/12.0);
 }
 
 int main(){
+  printf("\n||///////////////////////////////////////////////////////||");
+  printf("\n|| GRUPO 1 - Marcos Tulio , Erik de Jesus, Paulo Ricardo ||");
+  printf("\n||///////////////////////////////////////////////////////||");
   int tempo;
-  float velocidadeM,distanciaT,litrosU;
-
-  printf("Tempo gasto na viagem ");
+  float velocidade;
+  printf("\n\nTempo gasto na viagem (em horas): ");
   scanf("%d",&tempo);
   printf("Velocidade média: " );
-  scanf("%f",&velocidadeM);
-  distanciaT = distanciaP(tempo,velocidadeM);
-  litrosU = litros_usados(distanciaT);
-  printf("Distancia percorrida %.2f KM \nLitros utilizado: %.2fL",distanciaT,litrosU);
-
+  scanf("%f",&velocidade);
+  printf("Distância percorrida %.2f KM. \nLitros : %.2f L.\n\n",distanciaP(tempo,velocidade),
+  litros_usados(distanciaP(tempo,velocidade)));
 
 }
